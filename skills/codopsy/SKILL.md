@@ -1,8 +1,8 @@
 ---
 name: codopsy
-description: "Analyze code quality with codopsy-ts. Measures cyclomatic and cognitive complexity, detects lint issues, and can auto-fix problems. Use when asked to check code quality, reduce complexity, or find code smells."
-allowed-tools: "Bash, Read, Edit, Grep, Glob, Write"
-argument-hint: "[directory] [--fix]"
+description: Analyze code quality with codopsy-ts. Measures cyclomatic and cognitive complexity, detects lint issues, and can auto-fix problems. Use when asked to check code quality, reduce complexity, or find code smells.
+allowed-tools: Bash, Read, Edit, Grep, Glob, Write
+argument-hint: [directory] [--fix]
 ---
 
 # Codopsy — Code Quality Analysis & Auto-fix
@@ -23,8 +23,15 @@ npx codopsy-ts --version || npm install -g codopsy-ts
 
 Run codopsy-ts on the target directory. Default to `./src` if no directory is specified.
 
+**Important**: Always run from the project root directory to avoid path resolution issues.
+
 ```bash
 npx codopsy-ts analyze <directory> --verbose --no-color
+```
+
+For monorepo projects, specify the packages directory:
+```bash
+npx codopsy-ts analyze ./packages --verbose --no-color
 ```
 
 Parse the output to understand:
@@ -44,6 +51,8 @@ Present a clear summary to the user:
 Format the summary as a concise table when there are multiple issues.
 
 ### Step 3: Auto-fix (when `--fix` is passed or user asks to fix)
+
+**Note**: `--fix` is a directive for you (the AI) to fix issues — `codopsy-ts` itself does not auto-fix code. You will read the flagged files and apply fixes manually using Edit/Write tools.
 
 If the user requests fixes, address issues in this priority order:
 
@@ -74,6 +83,27 @@ For detailed analysis of specific files or functions:
 npx codopsy-ts analyze <directory> -o - --quiet | jq '.files[] | select(.file | contains("<filename>"))'
 ```
 
+## Configuration
+
+Projects can customize rules via `.codopsyrc.json` in the project root:
+
+```json
+{
+  "rules": {
+    "max-lines": { "max": 500, "severity": "warning" },
+    "max-complexity": { "max": 15 },
+    "no-console": false,
+    "no-any": "error"
+  }
+}
+```
+
+- Set a rule to `false` to disable it entirely
+- Set severity: `"error"`, `"warning"`, or `"info"`
+- Threshold rules (`max-lines`, `max-depth`, `max-params`, `max-complexity`, `max-cognitive-complexity`) accept `{ "max": number, "severity": string }`
+
+If `.codopsyrc.json` exists in the project, mention it in your report. If users report false positives, suggest adding a `.codopsyrc.json` to tune thresholds.
+
 ## Argument Handling
 
 - `$ARGUMENTS` defaults to `./src` if empty
@@ -84,9 +114,11 @@ npx codopsy-ts analyze <directory> -o - --quiet | jq '.files[] | select(.file | 
   - `/codopsy ./lib` → analyze `./lib`, report only
   - `/codopsy --fix` → analyze `./src`, fix all issues
   - `/codopsy ./lib --fix` → analyze `./lib`, fix all issues
+  - `/codopsy ./packages --fix` → monorepo: analyze all packages, fix all issues
 
 ## Important Notes
 
+- Always run from the **project root** directory, not from a subdirectory
 - Always run with `--no-color` to avoid ANSI escape codes in output parsing
 - Use `--verbose` to get per-file breakdown
 - When fixing, make minimal changes — don't refactor beyond what's needed
