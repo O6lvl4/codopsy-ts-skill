@@ -1,0 +1,10 @@
+{
+  "name": "codopsy-ts-skill",
+  "description": "Claude Code skill for codopsy-ts — analyze code quality, find issues, and auto-fix them.",
+  "version": "1.0.0",
+  "author": {
+    "name": "O6lvl4"
+  },
+  "repository": "https://github.com/O6lvl4/codopsy-ts-skill",
+  "homepage": "https://github.com/O6lvl4/codopsy-ts"
+}
