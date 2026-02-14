@@ -1,8 +1,8 @@
 ---
 name: codopsy
-description: Analyze code quality with codopsy-ts. Measures cyclomatic & cognitive complexity, detects lint issues, and can auto-fix problems. Use when asked to check code quality, reduce complexity, or find code smells.
-allowed-tools: Bash, Read, Edit, Grep, Glob, Write
-argument-hint: [directory] [--fix]
+description: "Analyze code quality with codopsy-ts. Measures cyclomatic and cognitive complexity, detects lint issues, and can auto-fix problems. Use when asked to check code quality, reduce complexity, or find code smells."
+allowed-tools: "Bash, Read, Edit, Grep, Glob, Write"
+argument-hint: "[directory] [--fix]"
 ---
 
 # Codopsy — Code Quality Analysis & Auto-fix
