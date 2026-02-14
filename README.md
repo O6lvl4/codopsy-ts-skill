@@ -8,6 +8,10 @@
   Analyze code quality and auto-fix issues, right from Claude Code.
 </p>
 
+<p align="center">
+  <a href="README.ja.md">日本語</a>
+</p>
+
 ---
 
 ## What it does
