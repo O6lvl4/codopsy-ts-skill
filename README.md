@@ -137,7 +137,7 @@ Re-analysis: A (99/100), 0 errors, 0 warnings, 5 info
 ## Requirements
 
 - [Claude Code](https://claude.ai/code)
-- [codopsy-ts](https://www.npmjs.com/package/codopsy-ts) v1.1.0+
+- [codopsy-ts](https://www.npmjs.com/package/codopsy-ts) v1.2.0+
 - Node.js 18+
 
 ---
