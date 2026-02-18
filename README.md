@@ -33,7 +33,8 @@ This plugin adds the `/codopsy` skill to Claude Code. It runs [codopsy-ts](https
 ## Install
 
 ```
-/plugin install codopsy@O6lvl4/codopsy-ts-skill
+/plugin marketplace add O6lvl4/codopsy-ts-skill
+/plugin install codopsy-ts
 ```
 
 > Requires [codopsy-ts](https://www.npmjs.com/package/codopsy-ts) v1.1.0+ (`npm install -g codopsy-ts`)

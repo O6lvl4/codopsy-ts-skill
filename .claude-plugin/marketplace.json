@@ -1,0 +1,15 @@
+{
+  "name": "codopsy-marketplace",
+  "owner": "O6lvl4",
+  "plugins": [
+    {
+      "name": "codopsy-ts",
+      "description": "TypeScript & JavaScript向けのAST品質分析ツール",
+      "source": {
+        "type": "github",
+        "owner": "O6lvl4",
+        "repo": "codopsy-ts-skill"
+      }
+    }
+  ]
+}

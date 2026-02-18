@@ -33,7 +33,8 @@
 ## インストール
 
 ```
-/plugin install codopsy@O6lvl4/codopsy-ts-skill
+/plugin marketplace add O6lvl4/codopsy-ts-skill
+/plugin install codopsy-ts
 ```
 
 > [codopsy-ts](https://www.npmjs.com/package/codopsy-ts) v1.1.0+ が必要です（`npm install -g codopsy-ts`）
