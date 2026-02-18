@@ -2,7 +2,9 @@
   "name": "codopsy-ts-skill",
   "description": "Claude Code skill for codopsy-ts — quality scoring (A–F), code analysis, baseline tracking, hotspot detection, and auto-fix.",
   "version": "1.2.0",
-  "author": "O6lvl4",
+  "author": {
+    "name": "O6lvl4"
+  },
   "repository": "https://github.com/O6lvl4/codopsy-ts-skill",
   "homepage": "https://github.com/O6lvl4/codopsy-ts"
 }
